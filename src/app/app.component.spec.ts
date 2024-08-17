@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-signals-examples' title`, () => {
+  it(`should have the 'angular-signal-examples' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-signals-examples');
+    expect(app.title).toEqual('angular-signal-examples');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-signals-examples');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-signal-examples');
   });
 });

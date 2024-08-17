@@ -1,0 +1,8 @@
+:host {
+  --mdc-elevated-card-container-color: #fff;
+}
+
+mat-divider {
+  margin: 16px 0;
+}
+

@@ -1,0 +1,11 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-title-small {
+  margin-right: 20px;
+}
+
+.container {
+  padding: 20px;
+}
