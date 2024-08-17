@@ -9,3 +9,8 @@
 .container {
   padding: 20px;
 }
+
+:host {
+  --mdc-elevated-card-container-color: #fff;
+}
+

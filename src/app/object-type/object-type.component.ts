@@ -1,0 +1,63 @@
+import { CommonModule } from '@angular/common';
+import { Component, computed, effect, inject, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+export interface Book {
+  ISBN: string;
+  title: string;
+}
+
+export interface Author {
+  name: string;
+  books: Book[];
+  lastUpdated?: Date;
+}
+
+const author: Author = {
+  name: 'John Doe',
+  lastUpdated: new Date(),
+  books: [{ ISBN: '1234567890', title: 'My Book' }]
+};
+
+@Component({
+  selector: 'app-object-type',
+  standalone: true,
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatDividerModule],
+  templateUrl: './object-type.component.html',
+  styleUrl: './object-type.component.css'
+})
+export class ObjectTypeComponent {
+  private _snackBar = inject(MatSnackBar);
+
+  protected author = signal<Author>(author);
+
+  protected message = computed(() => `Number of Books: ${this.author().books.length}, Last updated: ${this.author().lastUpdated}`);
+
+  constructor() {
+    effect(() => {
+      this.showNotification(`From Effect, Number of Books: ${this.author().books.length}, Last updated: ${this.author().lastUpdated}`);
+    });
+  }
+
+  protected addBook() {
+    this.author.update((value) => {
+      value.books.push({ ISBN: '1234567890', title: 'My Book' });
+      value.lastUpdated = new Date();
+
+      // WARNING : Updating the author object directly will not trigger the change detection
+      // return value;
+      
+      // Instead return a new object
+      return { ...value };
+    });
+  }
+
+  protected showNotification(message: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 2000,
+    });
+  }
+}

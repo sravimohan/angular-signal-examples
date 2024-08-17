@@ -29,6 +29,8 @@ export class PrimitiveTypesComponent {
   }
 
   protected showNotification(message: string) {
-    this._snackBar.open(message);
+    this._snackBar.open(message, 'Close', {
+      duration: 2000,
+    });
   }
 }
