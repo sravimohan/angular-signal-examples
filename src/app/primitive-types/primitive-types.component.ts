@@ -3,11 +3,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { GithubLinkComponent } from "../github-link/github-link.component";
 
 @Component({
   selector: 'primitive-types',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatDividerModule],
+  imports: [MatCardModule, MatButtonModule, MatDividerModule, GithubLinkComponent],
   templateUrl: './primitive-types.component.html',
   styleUrl: './primitive-types.component.css'
 })
