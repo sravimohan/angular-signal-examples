@@ -4,35 +4,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-export interface Book {
-  ISBN: string;
-  title: string;
-}
-
-export interface Author {
-  name: string;
-  books: Book[];
-  lastUpdated?: Date;
-}
-
-const author: Author = {
-  name: 'John Doe',
-  lastUpdated: new Date(),
-  books: [{ ISBN: '1234567890', title: 'My Book' }]
-};
+import { GithubLinkComponent } from "../github-link/github-link.component";
+import { Author } from '../models';
 
 @Component({
   selector: 'app-object-type',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatDividerModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatDividerModule, GithubLinkComponent],
   templateUrl: './object-type.component.html',
   styleUrl: './object-type.component.css'
 })
 export class ObjectTypeComponent {
   private _snackBar = inject(MatSnackBar);
 
-  protected author = signal<Author>(author);
+  protected author = signal<Author>({
+    name: 'John Doe',
+    lastUpdated: new Date(),
+    books: [{ ISBN: '1234567890', title: 'My Book' }]
+  });
 
   protected message = computed(() => `Number of Books: ${this.author().books.length}, Last updated: ${this.author().lastUpdated}`);
 
@@ -49,7 +38,7 @@ export class ObjectTypeComponent {
 
       // WARNING : Updating the author object directly will not trigger the change detection
       // return value;
-      
+
       // Instead return a new object
       return { ...value };
     });

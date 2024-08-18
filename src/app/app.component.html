@@ -1,10 +1,18 @@
 <mat-toolbar>
   <span class="mat-title-small">Angular Signal Examples</span>
-  <button mat-raised-button [routerLink]="'/primitive-types'">
+  <a
+    mat-raised-button
+    routerLink="/primitive-types"
+    routerLinkActive="is-active"
+  >
     Premitive Types
-  </button>
-  <button mat-raised-button [routerLink]="'/object-type'">Object Type</button>
-  <button mat-raised-button [routerLink]="'/model-input'">Model Input</button>
+  </a>
+  <a mat-raised-button routerLink="/object-type" routerLinkActive="is-active">
+    Object Type
+  </a>
+  <a mat-raised-button routerLink="/model-input" routerLinkActive="is-active">
+    Model Input
+  </a>
   <span class="spacer"></span>
   <github-link />
 </mat-toolbar>

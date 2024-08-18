@@ -14,3 +14,6 @@
   --mdc-elevated-card-container-color: #fff;
 }
 
+.is-active {
+  border: 1px solid var(--mdc-protected-button-label-text-color);
+}
