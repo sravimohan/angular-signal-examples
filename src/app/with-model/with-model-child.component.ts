@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, model } from '@angular/core';
+import { Component, computed, model } from '@angular/core';
 import { Author } from '../models';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
@@ -28,7 +28,11 @@ import { MatButton } from '@angular/material/button';
     .mat-body { display: flex; flex-direction: column; align-items: start; }`
 })
 export class WithModelChildComponent {
+
+  // model is a signal
   author = model.required<Author>();
+
+  numberOfBooks = computed(() => this.author().books.length);
 
   update() {
     this.author.update((value) => {

@@ -25,7 +25,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     <mat-card-content>
       <p class="mat-title-medium">Parent Variable :</p>
       <pre>{{ author | json }}</pre>
-      <app-with-model-child-component [(author)]="author" (authorChange)="showNotification($event)" />
+      <p class="mat-title-medium">Number of Books:</p>
+      <app-with-model-child-component 
+        #myAuthor
+        [(author)]="author" 
+        (authorChange)="showNotification($event)"
+      />
     </mat-card-content>
   </mat-card>
   `

@@ -26,7 +26,10 @@ import { WithInputChildComponent } from './with-input-child.component';
       <p class="mat-title-medium">Parent Signal :</p>
       <pre>{{ author() | json }}</pre>
   
-      <app-with-input-child-component [author]="author()" />
+      <app-with-input-child-component 
+        [author]="author()" 
+        (authorUpdated)="authorUpdated($event)"
+      />
 
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="addBook()">
@@ -55,5 +58,9 @@ export class WithInputComponent {
       // Instead return a new object
       return { ...value };
     });
+  }
+
+  protected authorUpdated(event: Author) {
+    console.log('Author Updated', event);
   }
 }

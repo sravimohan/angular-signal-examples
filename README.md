@@ -8,3 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - With object type
 - With input
 - With model
+
+## References
+
+- Two way binding, https://angular.dev/guide/templates/two-way-binding
+- 
