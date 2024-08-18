@@ -12,7 +12,6 @@ import { Author } from '../models';
   standalone: true,
   imports: [CommonModule, MatCardModule, MatButtonModule, MatDividerModule, GithubLinkComponent],
   templateUrl: './object-type.component.html',
-  styleUrl: './object-type.component.css'
 })
 export class ObjectTypeComponent {
   private _snackBar = inject(MatSnackBar);

@@ -6,11 +6,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GithubLinkComponent } from "../github-link/github-link.component";
 
 @Component({
-  selector: 'primitive-types',
+  selector: 'app-primitive-types',
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatDividerModule, GithubLinkComponent],
   templateUrl: './primitive-types.component.html',
-  styleUrl: './primitive-types.component.css'
 })
 export class PrimitiveTypesComponent {
   private _snackBar = inject(MatSnackBar);

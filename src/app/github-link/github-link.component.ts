@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
-  selector: 'github-link',
+  selector: 'app-github-link',
   standalone: true,
   imports: [MatButtonModule, MatIconModule],
   template: `
@@ -29,7 +29,6 @@ import { MatIconModule } from '@angular/material/icon';
     </svg>
 </a>
   `,
-  styles: ``
 })
 export class GithubLinkComponent {
   path = input('')
